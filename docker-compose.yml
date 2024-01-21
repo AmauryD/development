@@ -22,9 +22,9 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
   app:
     image: ghcr.io/pterodactyl/development/panel:latest
-    # build:
-    #   context: ./build/panel
-    #   dockerfile: Dockerfile
+    build:
+      context: ./build/panel
+      dockerfile: Dockerfile
     stop_grace_period: '1s'
     networks:
       pterodactyl:
@@ -59,9 +59,9 @@ services:
       CACHE_DRIVER: redis
   wings:
     image: ghcr.io/pterodactyl/development/wings:latest
-    # build:
-    #   context: ./build/wings
-    #   dockerfile: Dockerfile
+    build:
+      context: ./build/wings
+      dockerfile: Dockerfile
     stop_grace_period: '1s'
     tty: true
     stdin_open: true

@@ -15,6 +15,8 @@ done
 mkcert -install
 mkcert pterodactyl.test wings.pterodactyl.test minio.pterodactyl.test s3.minio.pterodactyl.test
 
+
+
 # Because we're doing Docker-in-Docker we actually need these paths to line
 # up correctly with the host system.
 sudo mkdir -p /var/lib/pterodactyl
@@ -47,3 +49,6 @@ echo "echo \"alias beak=\\\"$SCRIPT_DIR/beak\\\"\" >> ~/.bash_profile"
 echo ""
 echo "zsh:"
 echo "echo \"alias beak=\\\"$SCRIPT_DIR/beak\\\"\" >> ~/.zshrc"
+
+# disable recaptcha
+echo "RECAPTCHA_ENABLED=false" >> code/panel/.env
